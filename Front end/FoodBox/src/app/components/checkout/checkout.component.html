@@ -1,0 +1,243 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+
+
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+                <div class="form-area">
+                    <h3 color="blue">Checkout Page</h3>
+                    <!-- customer form group -->
+                    <div formGroupName="customer" class="form-area">
+                        <h3>Customer details</h3>
+                        <div class="row">
+
+                            <div class="col-md-2"><label>First Name</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="firstName" type="text">
+
+                                    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                                        class="alert alert-danger mt-1">
+
+                                        <div *ngIf="firstName.errors['required']">
+                                            First Name is required
+                                        </div>
+                                        <div *ngIf="firstName.errors['pattern']">
+                                            First Name must be atleast 2 characters
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Last Name</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="lastName" type="text">
+                                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                                        class="alert alert-danger mt-1">
+
+                                        <div *ngIf="lastName.errors['required']">
+                                            Last Name is required
+                                        </div>
+                                        <div *ngIf="lastName.errors['pattern']">
+                                            Last Name must be atleast 3 characters
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Email</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="email" type="text">
+                                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                        class="alert alert-danger mt-1">
+
+                                        <div *ngIf="email.errors['required']">
+                                            Email is required
+                                        </div>
+                                        <div *ngIf="email.errors['pattern']">
+                                            Incorrect Email address
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Mobile Number</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space" type="text">
+                                    <input formControlName="MobileNumber" type="text">
+                                    <div *ngIf="MobileNumber.invalid && (MobileNumber.dirty || MobileNumber.touched)"
+                                        class="alert alert-danger mt-1">
+
+                                        <div *ngIf="MobileNumber.errors['required']">
+                                            Mobile Number is required
+                                        </div>
+                                        <div *ngIf="MobileNumber.errors['pattern']">
+                                            Please Enter the 10 digit number
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div formGroupName="shippingAddress" class="form-area">
+                        <h3>Shipping Address</h3>
+                        <div class="row">
+
+                            <div class="col-md-2"><label>Flat Number/Name</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="Flat" type="text">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Area/Street</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="AreaStreetVillage" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>LandMark</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="LandMark" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Town/City</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="TownCity" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>State</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="State" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Pincode</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="Pincode" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add checkbox to make billing address same as shipping address -->
+                    <div class="input-space">
+                        <label class="au-checkbox">
+                            <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+                            <span class="au-checkmark"></span>Billing address same as shipping address
+                        </label>
+                    </div>
+
+                    <div formGroupName="billingAddress" class="form-area">
+                        <h3>Billing Address</h3>
+                        <div class="row">
+
+                            <div class="col-md-2"><label>Flat Number/Name</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="Flat" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Area/Street</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="AreaStreetVillage" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>LandMark</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="LandMark" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Town/City</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="TownCity" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>State</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="State" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Pincode</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="Pincode" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div formGroupName="creditCard" class="form-area">
+                        <h3>Credit Card</h3>
+                        <div class="row">
+
+                            <div class="col-md-2"><label>Card Type</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <select formControlName="cardType">
+                                        <option>Visa</option>
+                                        <option>Master-Card</option>
+                                        <option>Rupay</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Name on Card</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="nameOnCard" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Card Number</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="cardNumber" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Security Code</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="securityCode" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Expiration Month</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="ExpirationMonth" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-2"><label>Expiration Year</label></div>
+                            <div class="col-md-9">
+                                <div class="input-space">
+                                    <input formControlName="ExpirationYear" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-area">
+                        <h3>Review your Order</h3>
+                        <p style="color: purple;">Total Quantity: {{totalQuantity}}</p>
+                        <p style="color: purple;">Shipping: Free</p>
+                        <p style="color: purple;">Total Price: {{totalPrice | currency: 'INR'}}</p>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info">Purchase</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <form [formGroup]="addProductFormGroup" (ngSubmit)="addProduct()">
+                <div formGroupName="addproduct" class="form-area">
+                    <h3>Enter details of the Product</h3>
+                    <div class="row">
+                        <div class="col-md-2"><label>Product Price</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="product_price" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Date added</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="date_added" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Description</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="description" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Image URL</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="imageurl" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Last Updated</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="last_updated" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Product Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="product_name" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Status</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="status" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"><label>Category ID</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="category_id" type="text">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info">Add Product</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

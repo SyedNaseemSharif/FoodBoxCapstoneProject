@@ -1,0 +1,11 @@
+<div class="form-header">
+  <div><h1 style="color: rgb(71, 25, 180);">FoodBox   </h1></div>
+  &nbsp; &nbsp;&nbsp;
+              <input #myInput type="text" 
+              placeholder="Search for food items ..." 
+              class="au-input au-input-xl" 
+              (keyup.enter)="doSearch(myInput.value)"/>
+              <button class="au-btn-submit" (click)="doSearch(myInput.value)">
+                Find your dish
+              </button>
+</div>
